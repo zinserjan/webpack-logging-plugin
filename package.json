@@ -10,7 +10,15 @@
   "scripts": {
     "prettify": "prettier --write \"{src,test}/**/*.js\"",
     "precommit": "lint-staged",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "testRegex": "<rootDir>/test/.*.test.js$",
+    "collectCoverage": true
   },
   "lint-staged": {
     "*.js": [
@@ -34,6 +42,7 @@
   "license": "MIT",
   "devDependencies": {
     "husky": "^0.13.2",
+    "jest": "^19.0.2",
     "lint-staged": "^3.3.1",
     "prettier": "^0.22.0"
   }
