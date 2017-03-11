@@ -8,7 +8,15 @@
     "src"
   ],
   "scripts": {
+    "prettify": "prettier --write \"{src,test}/**/*.js\"",
+    "precommit": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "keywords": [
     "webpack",
@@ -23,5 +31,10 @@
     "url": "https://github.com/zinserjan/webpack-logging-plugin/issues"
   },
   "author": "Jan-André Zinser",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^0.13.2",
+    "lint-staged": "^3.3.1",
+    "prettier": "^0.22.0"
+  }
 }
