@@ -10,7 +10,7 @@ const registerCompilerCallback = require("./util/registerCompilerCallbacks");
 const getProgressMessage = require("./util/getProgressMessage");
 const displayErrors = require("./util/displayErrors");
 
-class WebpackLoggerPlugin {
+class WebpackLoggingPlugin {
   constructor(opts = {}) {
     this._formatError = opts.formatError || (err => err);
     this._formatStats = opts.formatStats || (stats => stats.toJson({}, true));
@@ -114,4 +114,4 @@ class WebpackLoggerPlugin {
   }
 }
 
-module.exports = WebpackLoggerPlugin;
+module.exports = WebpackLoggingPlugin;

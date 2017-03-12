@@ -2,7 +2,7 @@
   "name": "webpack-logging-plugin",
   "version": "0.0.0",
   "description": "Logging plugin for webpack",
-  "main": "src/WebpackLoggerPlugin.js",
+  "main": "src/WebpackLoggingPlugin.js",
   "files": [
     "*.md",
     "src"
