@@ -22,13 +22,15 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 
 const config = {
   entry: '...',
-  output: {...},
-  modules: {...},
+  output: {},
+  modules: {},
   plugins: [
-	  new WebpackLoggingPlugin({
-	    formatStats: (stats) => formatWebpackMessages(stats.toJson({}, true))
-		})
-	]
+    new WebpackLoggingPlugin({
+      formatError: (err) => err, 
+      formatStats: (stats) => formatWebpackMessages(stats.toJson({}, true)),
+      successCallback: () => console.log("App is running at: http://localhost:3000/")
+    })
+  ]
 };
 ```
 
@@ -48,7 +50,9 @@ const multiCompiler = webpack(configs);
 
 // apply pretty webpack status logging
 multiCompiler.apply(new WebpackLoggingPlugin({
-  formatStats: (stats) => formatWebpackMessages(stats.toJson({}, true))
+  formatError: (err) => err, 
+  formatStats: (stats) => formatWebpackMessages(stats.toJson({}, true)),
+  successCallback: () => console.log("App is running at: http://localhost:3000/")
 }));
 
 // init & start dev server
