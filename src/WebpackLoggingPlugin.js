@@ -102,7 +102,7 @@ class WebpackLoggingPlugin {
 
     // show warnings if no errors were found.
     if (messages.warnings.length > 0) {
-      displayErrors("warning", messages.errors);
+      displayErrors("warning", messages.warnings);
       return;
     }
 
