@@ -2,14 +2,18 @@
   "name": "webpack-logging-plugin",
   "version": "0.1.1",
   "description": "Logging plugin for webpack",
-  "main": "src/WebpackLoggingPlugin.js",
+  "main": "lib/WebpackLoggingPlugin.js",
   "files": [
     "*.md",
-    "src"
+    "src",
+    "lib"
   ],
   "scripts": {
+    "clean": "rimraf lib",
+    "build": "npm run clean && babel ./src -d lib",
     "prettify": "prettier --print-width 100 --write \"{src,test}/**/*.js\"",
     "precommit": "lint-staged",
+    "prepublish": "npm run build",
     "test": "jest",
     "test-watch": "jest --watch"
   },
@@ -41,10 +45,13 @@
   "author": "Jan-André Zinser",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
     "husky": "^0.13.2",
     "jest": "^19.0.2",
     "lint-staged": "^3.3.1",
     "prettier": "^0.22.0",
+    "rimraf": "^2.6.1",
     "webpack": "^2.2.0"
   },
   "dependencies": {
@@ -56,6 +63,6 @@
     "webpack": "^2.2.0"
   },
   "engines": {
-    "node": ">=6.9.0"
+    "node": ">=4.0.0"
   }
 }
